@@ -88,10 +88,10 @@
      <section>
         <h3>Why pandas?</h3>
         <ul class="list--tall copy--small copy--small box--small">
-          <li class ="fragment">Etremely fast, even with large datasets</li>
+          <li class ="fragment">Extremely fast, even with large datasets</li>
           <li class ="fragment">Quick, intuitive commands</li>
           <li class ="fragment">View your data without crashing your computer</li>
-          <li class ="fragment">Easy to use for developers, staticisions, and basically anyone
+          <li class ="fragment">Easy to use for developers, statisticians, and basically anyone
           working with a lot of data</li>
           <li class="fragment">Used by many companies</li>
         </ul>
@@ -139,7 +139,7 @@ pip install pandas
       <section>
         <h3>Our Sample Data</h3>
         <p class='copy--small box--small'>Our data is stored in the folder
-        gdi-intro-pandas/example_data/</p>
+        intermediate-python-pandas/example_data/</p>
         <p class='copy--small box--small'>Once in that folder, open up the file purchases.csv</p>
         <p class='copy--small box--small'>(This is the last time you're allowed to open a
         csv in this class)</p>
@@ -161,7 +161,7 @@ In [2]: pandas.read_
       <h3>Importing our CSV</h3>
         <p class='copy--small box--small'>Now let's import our data with read_csv</p>
         <div class='copy--small box--small'><pre><code contenteditable class="python">
-In [3]: purchases = pandas.read_csv('~/gdi-intro-pandas/example_data/purchases.csv')
+In [3]: purchases = pandas.read_csv('~/intermediate-python-pandas/example_data/purchases.csv')
         </code></pre></div>
         <p class='copy--small box--small'>You now have a pandas dataframe called purchases</p>
       </section>
@@ -223,7 +223,7 @@ In [11]: purchases.head()
 In [12]: members.first_name.fillna(' ')
         </code></pre></div>
         <p class='copy--small box--small fragment'>Notice that I refer to the first_name column as
-        purchases.first_name. That is also accepted syntax in pandas.</p>
+        members.first_name. That is also accepted syntax in pandas.</p>
       </section>
 
       <section>
@@ -250,7 +250,7 @@ In [14]: purchases = purchases.sort_values(by=['date', 'total'], ascending=False
         <p class='copy--small box--small'>Check out tab complete after <code>to_</code> to
         see how else you can save your data</p>
         <div class='copy--small box--small'><pre><code contenteditable class="python">
-In [15]: purchases.to_csv('~/gdi-intro-pandas/example_data/export_purchases.csv')
+In [15]: purchases.to_csv('~/intermediate-python-pandas/example_data/export_purchases.csv')
         </code></pre></div>
       </section>
 
@@ -331,7 +331,7 @@ purchases[purchases['total'] > 100.0]
         purchases-october.csv and print its columns</p>
         <p class='copy--small box--small fragment'>Since this csv has the columns as purchases, we can concatinate the two dataframes like so:</p>
         <div class='copy--small box--small fragment'><pre><code contenteditable class="python">
-In [21]: concatinated = pandas.concat(purchases, purchases-october)
+In [21]: concatinated = pandas.concat([purchases, purchases-october])
         </code></pre></div>
       </section>
 
@@ -359,7 +359,7 @@ In [22]: merged = purchases.merge(members, how='left', on='member_id')
         <p class='copy--small box--small fragment'>There are a couple of ways to do this, but here is one
         recommended way.</p>
         <div class='copy--small box--small fragment'><pre><code contenteditable class="python">
-In [23]: prices_by_date = purchases.groupby('date', as_index=False)[['subtotal', 'total']].avg()
+In [23]: prices_by_date = purchases.groupby('date', as_index=False)[['subtotal', 'total']].mean()
 
 In [24]: totals_member_date = purchases.groupby(['date', 'member_id'],
                                         as_index=False)['total'].sum()
