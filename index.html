@@ -31,7 +31,7 @@
 
         <!-- Opening slide -->
         <section>
-          <img src="img/circle-gdi-logo.png" class="img--bare" height="450px" />
+          <img src="images/gdi_logo_badge.png" class="img--bare" height="450px" />
           <div class="copy--small box--small">
             <h3><span class="green">Intro to Pandas Workshop</span></h3>
           </div>
@@ -220,7 +220,7 @@ In [11]: purchases.head()
         <p class='copy--small box--small fragment'>To solve this, we can use the fillna() command to replace
         NaN with whatever we choose.</p>
         <div class='copy--small box--small fragment'><pre><code contenteditable class="python">
-In [12]: purchases.first_name.fillna(' ')
+In [12]: members.first_name.fillna(' ')
         </code></pre></div>
         <p class='copy--small box--small fragment'>Notice that I refer to the first_name column as
         purchases.first_name. That is also accepted syntax in pandas.</p>
@@ -236,10 +236,9 @@ In [12]: purchases.first_name.fillna(' ')
                                 documentation</a> for more
         information</p>
         <div class='copy--small box--small fragment'><pre><code contenteditable class="python">
-In [13]: purchases.sort_values(by='date', index=False)
+In [13]: by_date = purchases.sort_values(by='date')
 
-In [14]: purchases = purchases.sort_values(by=['date', 'total'], ascending=False,
-index=False)
+In [14]: purchases = purchases.sort_values(by=['date', 'total'], ascending=False)
         </code></pre></div>
       </section>
 
@@ -275,9 +274,9 @@ In [15]: purchases.to_csv('~/gdi-intro-pandas/example_data/export_purchases.csv'
         type of your column.</p>
         <p class='copy--small box--small fragment'>Let's try changing the the data type for the members column site_visits</p>
         <div class='copy--small box--small fragment'><pre><code contenteditable class="python">
-In [16]: members.site_visits = members.visits.astype(str)
+In [16]: members.site_visits = members.site_visits.astype(str)
 
-In [17]: members.site_visits = members.visits.astype(float)
+In [17]: members.site_visits = members.site_visits.astype(float)
         </code></pre></div>
       </section>
 
@@ -363,7 +362,7 @@ In [22]: merged = purchases.merge(members, how='left', on='member_id')
 In [23]: prices_by_date = purchases.groupby('date', as_index=False)[['subtotal', 'total']].avg()
 
 In [24]: totals_member_date = purchases.groupby(['date', 'member_id'],
-                                        as_index=False)['total_price'].sum()
+                                        as_index=False)['total'].sum()
         </code></pre></div>
         <p class='copy--small box--small fragment'>You must include as_index=False since you are
         combining columns and index logic gets funny otherwise.</p>
@@ -374,10 +373,9 @@ In [24]: totals_member_date = purchases.groupby(['date', 'member_id'],
 
       <section>
       <h3>Let's Develop It!</h3>
-      <p class='copy--small box--small'>Import items.csv as a pandas dataframe</p>
-      <p class='copy--small box--small'>Merge items with our merged dataframe by member_id</p>
-      <p class='copy--small box--small'>Group this new dataframe by item type and date, sum the total
-      cost</p>
+      <p class='copy--small box--small'>Import items_purchased.csv as a pandas dataframe called items</p>
+      <p class='copy--small box--small'>Merge items with our merged dataframe by purchase_id</p>
+      <p class='copy--small box--small'>Group this new dataframe by item type and date, sum the total</p>
       <p class='copy--small box--small'>*Challenge* </p>
       <p class='copy--small box--small'>Find out the member name who has spent the most on sale items</p>
       </section>
