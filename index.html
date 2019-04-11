@@ -44,10 +44,10 @@
           <p>Girl Develop It is here to provide affordable and accessible programs to learn software through mentorship and hands-on instruction.</p>
           <p class ="green">Some "rules"</p>
           <ul>
-            <li>We are here for you!</li>
+            <li>We are here for you</li>
             <li>Every question is important</li>
             <li>Help each other</li>
-            <li>Have fun</li>
+            <li>Have fun!</li>
           </ul>
           </div>
         </section>
@@ -70,9 +70,9 @@
           <ul class="list--xtall copy--small box--small copy--small">
             <li class ="fragment">What is pandas?</li>
             <li class ="fragment">Why pandas?</li>
-            <li class ="fragment">Uploading and Saving Data</li>
-            <li class ="fragment">Summarizing and Organizing Data</li>
-            <li class ="fragment">Manipulating Data</li>
+            <li class ="fragment">Uploading and saving data</li>
+            <li class ="fragment">Summarizing and organizing data</li>
+            <li class ="fragment">Manipulating data</li>
           </ul>
         </section>
 
@@ -101,8 +101,8 @@
         <h3>Who is using pandas?</h3>
         <ul class="list--tall copy--small copy--small box--small">
           <li>Facebook</li>
+          <li>Pinterest</li>
           <li>AppNexus</li>
-          <li>SpringServe</li>
           <li>(many others)</li>
         </ul>
       </section>
@@ -139,7 +139,7 @@ pip install pandas
       <section>
         <h3>Our Sample Data</h3>
         <p class='copy--small box--small'>Our data is stored in the folder
-        intermediate-python-pandas/example_data/</p>
+        intermediate-python-pandas/example-data/</p>
         <p class='copy--small box--small'>Once in that folder, open up the file purchases.csv</p>
         <p class='copy--small box--small'>(This is the last time you're allowed to open a
         csv in this class)</p>
@@ -161,7 +161,7 @@ In [2]: pandas.read_
       <h3>Importing our CSV</h3>
         <p class='copy--small box--small'>Now let's import our data with read_csv</p>
         <div class='copy--small box--small'><pre><code contenteditable class="python">
-In [3]: purchases = pandas.read_csv('~/intermediate-python-pandas/example_data/purchases.csv')
+In [3]: purchases = pandas.read_csv('~/intermediate-python-pandas/example-data/purchases.csv')
         </code></pre></div>
         <p class='copy--small box--small'>You now have a pandas dataframe called purchases</p>
       </section>
@@ -250,7 +250,7 @@ In [14]: purchases = purchases.sort_values(by=['date', 'total'], ascending=False
         <p class='copy--small box--small'>Check out tab complete after <code>to_</code> to
         see how else you can save your data</p>
         <div class='copy--small box--small'><pre><code contenteditable class="python">
-In [15]: purchases.to_csv('~/intermediate-python-pandas/example_data/export_purchases.csv')
+In [15]: purchases.to_csv('~/intermediate-python-pandas/example-data/export_purchases.csv')
         </code></pre></div>
       </section>
 
@@ -324,14 +324,14 @@ purchases[purchases['total'] > 100.0]
       </section>
 
       <section>
-      <h3>Concatinating DataFrames</h3>
-        <p class='copy--small box--small'>To concatinate dataframes means to take two
+      <h3>Concatenating DataFrames</h3>
+        <p class='copy--small box--small'>To concatenate dataframes means to take two
         dataframes with the same columns and stacking the rows</p>
         <p class='copy--small box--small fragment'>Let's import the csv
         purchases-october.csv and print its columns</p>
-        <p class='copy--small box--small fragment'>Since this csv has the columns as purchases, we can concatinate the two dataframes like so:</p>
+        <p class='copy--small box--small fragment'>Since this csv has the columns as purchases, we can concatenate the two dataframes like so:</p>
         <div class='copy--small box--small fragment'><pre><code contenteditable class="python">
-In [21]: concatinated = pandas.concat([purchases, purchases-october])
+In [21]: concatenated = pandas.concat([purchases, purchases-october])
         </code></pre></div>
       </section>
 
